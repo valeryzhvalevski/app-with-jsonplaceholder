@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Images.css';
 
 const Images = () => {
   const [images, setImages] = useState([]);
@@ -17,9 +18,9 @@ const Images = () => {
   return (
     <div>
       <h1>Images</h1>
-      <ul>
+      <ul className="images-list">
         {images.map(image => (
-          <li key={image.id}>
+          <li key={image.id} className="image-item">
             <img src={image.thumbnailUrl} alt={image.title} />
             <button onClick={() => deleteImage(image.id)}>Delete</button>
           </li>

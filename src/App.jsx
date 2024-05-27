@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Users from './components/Users';
-import Posts from './components/Posts';
-import Images from './components/Images';
+import Users from './components/Users/Users';
+import Posts from './components/Posts/Posts';
+import Images from './components/Images/Images';
 import './App.css';
 
 const App = () => {
