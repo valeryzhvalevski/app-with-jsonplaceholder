@@ -1,0 +1,40 @@
+nav {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+button.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.content {
+  padding: 20px;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.slide {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.slide h2 {
+  cursor: pointer;
+}
+
+.slide p {
+  margin-top: 10px;
+}
