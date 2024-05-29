@@ -5,6 +5,7 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [currentPostIndex, setCurrentPostIndex] = useState(0);
   const [selectedPost, setSelectedPost] = useState(null);
+  const [slideDirection, setSlideDirection] = useState(''); 
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
@@ -15,11 +16,13 @@ const Posts = () => {
 
   const nextPost = () => {
     setSelectedPost(null);
+    setSlideDirection('next');
     setCurrentPostIndex((prevIndex) => (prevIndex + 1) % posts.length);
   };
 
   const prevPost = () => {
     setSelectedPost(null);
+    setSlideDirection('prev');
     setCurrentPostIndex((prevIndex) => (prevIndex - 1 + posts.length) % posts.length);
   };
 
@@ -33,7 +36,7 @@ const Posts = () => {
       <div className="slider">
         <button onClick={prevPost}>Previous</button>
         {posts.length > 0 && (
-          <div className="slide">
+          <div className={`slide ${slideDirection}`} onAnimationEnd={() => setSlideDirection('')}>
             <h2 onClick={selectPost}>{posts[currentPostIndex].title}</h2>
             {selectedPost && <p>{posts[currentPostIndex].body}</p>}
           </div>
